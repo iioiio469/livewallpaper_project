@@ -1,10 +1,16 @@
-rootProject.name = "livewallpaper_project"
-include(":app")
+// Top-level build file
 
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+buildscript {
     repositories {
+        // لا تقم بإضافة repos هنا إذا كنت تستخدم dependencyResolutionManagement في settings.gradle
         google()
         mavenCentral()
     }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.4.2'
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
