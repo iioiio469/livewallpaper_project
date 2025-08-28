@@ -1,10 +1,11 @@
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
 }
 
 android {
     compileSdk 33
+
+    namespace "com.example.livewallpaper_project" // ← هذا هو اسم الحزمة (لو عندك اسم آخر غيّره هنا)
 
     defaultConfig {
         applicationId "com.example.livewallpaper_project"
@@ -23,7 +24,6 @@ android {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.22"
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
