@@ -3,9 +3,8 @@ plugins {
 }
 
 android {
+    namespace "com.example.livewallpaper_project"
     compileSdk 33
-
-    namespace "com.example.livewallpaper_project" // ← هذا هو اسم الحزمة (لو عندك اسم آخر غيّره هنا)
 
     defaultConfig {
         applicationId "com.example.livewallpaper_project"
