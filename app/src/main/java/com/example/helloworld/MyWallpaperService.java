@@ -1,4 +1,4 @@
-package com.example.livewallpaper_project;
+package com.example.helloworld;
 
 import android.service.wallpaper.WallpaperService;
 import android.graphics.Canvas;
@@ -9,42 +9,36 @@ public class MyWallpaperService extends WallpaperService {
 
     @Override
     public Engine onCreateEngine() {
-        return new MyWallpaperEngine();
+        return new MyEngine();
     }
 
-    class MyWallpaperEngine extends Engine {
+    class MyEngine extends Engine {
         private Paint paint = new Paint();
-        private boolean visible = true;
-        private Thread drawThread;
 
-        MyWallpaperEngine() {
-            paint.setColor(0xFF0099CC);
-            paint.setStyle(Paint.Style.FILL);
-
-            drawThread = new Thread(() -> {
-                while (true) {
-                    if (visible) {
-                        SurfaceHolder holder = getSurfaceHolder();
-                        Canvas canvas = holder.lockCanvas();
-                        if (canvas != null) {
-                            canvas.drawColor(0xFF000000);
-                            canvas.drawCircle(canvas.getWidth()/2, canvas.getHeight()/2, 200, paint);
-                            holder.unlockCanvasAndPost(canvas);
-                        }
-                    }
-                    try {
-                        Thread.sleep(50);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-            drawThread.start();
+        MyEngine() {
+            paint.setColor(0xFF00FF00); // أخضر
         }
 
         @Override
-        public void onVisibilityChanged(boolean visible) {
-            this.visible = visible;
+        public void onSurfaceCreated(SurfaceHolder holder) {
+            super.onSurfaceCreated(holder);
+            draw();
+        }
+
+        private void draw() {
+            SurfaceHolder holder = getSurfaceHolder();
+            Canvas canvas = null;
+            try {
+                canvas = holder.lockCanvas();
+                if (canvas != null) {
+                    canvas.drawColor(0xFF000000); // أسود للخلفية
+                    canvas.drawCircle(canvas.getWidth()/2, canvas.getHeight()/2, 200, paint); // دائرة خضراء
+                }
+            } finally {
+                if (canvas != null) {
+                    holder.unlockCanvasAndPost(canvas);
+                }
+            }
         }
     }
-                          }
+}
