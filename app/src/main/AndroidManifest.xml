@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
 
-        <!-- خدمة الخلفية الحية -->
+        <!-- هنا نخلي بس خدمة واحدة بس للـ Live Wallpaper -->
         <service
             android:name=".MyWallpaperService"
             android:permission="android.permission.BIND_WALLPAPER"
@@ -31,5 +31,4 @@
         </service>
 
     </application>
-
 </manifest>
