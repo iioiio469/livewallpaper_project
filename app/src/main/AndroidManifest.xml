@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
 
-        <!-- 👇 تعريف خدمة الخلفية المتحركة -->
+        <!-- خدمة الخلفية الحية -->
         <service
             android:name=".MyWallpaperService"
             android:permission="android.permission.BIND_WALLPAPER"
