@@ -1,18 +1,20 @@
-package com.example.helloworld;
+package com.example.livewallpaper_project;
 
+import android.app.WallpaperManager;
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        TextView tv = new TextView(this);
-        tv.setText("Hello World!");
-        tv.setTextSize(24);
+        // يفتح إعدادات اختيار الخلفية المتحركة مباشرة
+        Intent intent = new Intent(WallpaperManager.ACTION_LIVE_WALLPAPER_CHOOSER);
+        startActivity(intent);
 
-        setContentView(tv);
+        // يقفل التطبيق بعد ما يفتح شاشة اختيار الخلفية
+        finish();
     }
 }
