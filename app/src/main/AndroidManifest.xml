@@ -10,18 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
-        <!-- SetWallpaperActivity هتكون Launcher -->
-        <activity android:name=".SetWallpaperActivity">
+        <!-- MainActivity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!-- MainActivity عادية -->
-        <activity android:name=".MainActivity" />
+        <!-- SetWallpaperActivity -->
+        <activity
+            android:name=".SetWallpaperActivity"
+            android:exported="true" />
 
-        <!-- خدمة الخلفية -->
+        <!-- MyWallpaperService -->
         <service
             android:name=".MyWallpaperService"
             android:permission="android.permission.BIND_WALLPAPER"
@@ -35,4 +39,5 @@
         </service>
 
     </application>
+
 </manifest>
