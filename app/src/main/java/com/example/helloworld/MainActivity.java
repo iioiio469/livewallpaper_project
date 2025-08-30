@@ -1,4 +1,4 @@
-package com.example.livewallpaper_project;
+package com.example.helloworld;
 
 import android.app.WallpaperManager;
 import android.content.Intent;
