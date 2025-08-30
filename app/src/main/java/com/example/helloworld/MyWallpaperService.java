@@ -1,4 +1,4 @@
-package com.example.livewallpaper_project;
+package com.example.helloworld;
 
 import android.service.wallpaper.WallpaperService;
 import android.graphics.Canvas;
