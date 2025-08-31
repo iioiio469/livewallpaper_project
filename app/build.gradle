@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace "com.example.helloworld"   // غيّر الاسم لو الباكيج عندك مختلف
+    namespace "com.example.helloworld"   // ✨ غيّرها لو عندك package مختلف
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.helloworld"   // نفس اسم الباكيج
+        applicationId "com.example.helloworld"   // ✨ نفس الباكيج
         minSdk 21
         targetSdk 33
         versionCode 1
@@ -18,9 +18,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // لو حبيت تعمل توقيع release لازم تضيف signingConfig هنا
         }
         debug {
-            // نضيف توقيع Debug افتراضي علشان الـ APK يشتغل
+            // ✨ أهم حاجة: الـ debug بيتوقّع تلقائي بمفتاح debug
             signingConfig signingConfigs.debug
         }
     }
