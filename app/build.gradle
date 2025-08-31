@@ -3,32 +3,24 @@ plugins {
 }
 
 android {
-    namespace "com.example.helloworld"   // ✨ غيّرها لو عندك package مختلف
+    namespace "com.myapp.wallpaper"
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.helloworld"   // ✨ نفس الباكيج
+        applicationId "com.myapp.wallpaper"
         minSdk 21
         targetSdk 33
         versionCode 1
         versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            // لو حبيت تعمل توقيع release لازم تضيف signingConfig هنا
         }
-        debug {
-            // ✨ أهم حاجة: الـ debug بيتوقّع تلقائي بمفتاح debug
-            signingConfig signingConfigs.debug
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -36,4 +28,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
