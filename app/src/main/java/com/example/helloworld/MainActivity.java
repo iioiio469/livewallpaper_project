@@ -1,6 +1,7 @@
 package com.example.helloworld;
 
 import android.app.WallpaperManager;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,11 +11,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // يفتح إعدادات اختيار الخلفية المتحركة مباشرة
-        Intent intent = new Intent(WallpaperManager.ACTION_LIVE_WALLPAPER_CHOOSER);
-        startActivity(intent);
+        try {
+            // يفتح شاشة تعيين الـ Live Wallpaper
+            Intent intent = new Intent(WallpaperManager.ACTION_CHANGE_LIVE_WALLPAPER);
+            intent.putExtra(WallpaperManager.EXTRA_LIVE_WALLPAPER_COMPONENT,
+                    new ComponentName(this, MyWallpaperService.class));
+            startActivity(intent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        // يقفل التطبيق بعد ما يفتح شاشة اختيار الخلفية
-        finish();
+        finish(); // نقفل الـ Activity بعد التنفيذ
     }
 }
