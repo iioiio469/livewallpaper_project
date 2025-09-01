@@ -5,8 +5,8 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/bg1"
+        android:label="@string/app_name"
         android:roundIcon="@drawable/bg1"
-        android:label="Hello World"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
@@ -20,12 +20,12 @@
             </intent-filter>
         </activity>
 
-        <!-- النشاط اللي بيخلي المستخدم يحدد الخلفية -->
+        <!-- النشاط اللي بيعرض الصورة ويخليها خلفية -->
         <activity
             android:name=".SetWallpaperActivity"
             android:exported="true" />
 
-        <!-- خدمة الـ Live Wallpaper -->
+        <!-- خدمة الخلفية الحية -->
         <service
             android:name=".MyWallpaperService"
             android:permission="android.permission.BIND_WALLPAPER"
